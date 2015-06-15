@@ -61,6 +61,12 @@ var JUnitReporter = function(baseReporterDecorator, config, logger, helper, form
 
     suite.ele('system-out').dat(allMessages.join() + '\n');
     suite.ele('system-err');
+    if (result.disconnected) {
+        suite.ele('error').dat('disconnected');
+    }
+    if (result.error) {
+        suit.ele('error').dat('error');
+    }
   };
 
   this.onRunComplete = function() {
